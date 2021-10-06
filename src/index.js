@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const todo = {
+  done: false,
+  text: "Study ReactJS"
+}
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ul>
+    <li className="TodoItem">{todo.text} - {todo.done ? 'Done' : 'Pending'}</li>
+  </ul>,
   document.getElementById('root')
 );
 
