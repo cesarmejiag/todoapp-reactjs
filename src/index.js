@@ -8,14 +8,21 @@ const todo = {
   text: "Study ReactJS",
 };
 
-ReactDOM.render(
-  <ul>
-    <li className="TodoItem">
-      {todo.text} - {todo.done ? "Done" : "Pending"}
-    </li>
-  </ul>,
-  document.getElementById("root")
-);
+setInterval(() => {
+  let time = new Date();
+
+  ReactDOM.render(
+    <>
+      <div>{time.toLocaleString()}</div>
+      <ul>
+        <li className="TodoItem">
+          {todo.text} - {todo.done ? "Done" : "Pending"}
+        </li>
+      </ul>
+    </>,
+    document.getElementById("root")
+  );
+}, 1000);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
