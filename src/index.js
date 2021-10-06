@@ -1,18 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
 const todo = {
   done: false,
-  text: "Study ReactJS"
-}
+  text: "Study ReactJS",
+};
 
 ReactDOM.render(
   <ul>
-    <li className="TodoItem">{todo.text} - {todo.done ? 'Done' : 'Pending'}</li>
+    <li className="TodoItem">
+      {todo.text} - {todo.done ? "Done" : "Pending"}
+    </li>
   </ul>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
