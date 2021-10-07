@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TodoList from "./components/TodoList";
 
-const todo = {
-  done: false,
-  text: "Study ReactJS",
-};
+const todos = [
+  {
+    done: false,
+    text: "Study ReactJS",
+  },
+];
 
 const App = () => {
+  const [visible, setVisible] = useState(true);
+  const handleClick = () => {
+    setVisible(!visible);
+  };
+
+  useEffect(() => {
+    console.log("App mount or update");
+  }, [visible]);
+
   return (
     <div>
-      <TodoList todo={todo} />
-      <TodoList todo={{done: true, text: "Drink coffee"}} />
+      <button onClick={handleClick}>Show / Hide</button>
+      {visible && <TodoList todos={todos} />}
     </div>
   );
 };

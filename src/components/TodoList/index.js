@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import TodoItem from "../TodoItem";
 
-const TodoList = ({todo}) => {
+const TodoList = ({ todos }) => {
+  useEffect(() => {
+    console.log("TodoList mount");
+    return () => {
+      console.log("TodoList unmount");
+    };
+  });
+
   return (
     <ul className="TodoList">
-      <li className="TodoItem">
-        {todo.text} - {todo.done ? "Done" : "Pending"}
-      </li>
+      <TodoItem todo={todos[0]} />
     </ul>
   );
 };
