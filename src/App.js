@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
 const initTodos = [
@@ -11,14 +12,25 @@ const initTodos = [
 
 const App = () => {
   const [todos, setTodos] = useState(initTodos);
-  const handleClick = () => {
-    setTodos(todos.concat([{ id: Date.now(), done: false, text: "Drink Coffee" }]));
+  const addTodo = (newTodo) => {
+    setTodos(todos.concat([newTodo]));
+  };
+  const todoDone = (id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.done = !todo.done;
+        }
+
+        return todo;
+      })
+    );
   };
 
   return (
     <div>
-      <button onClick={handleClick}>Add todo</button>
-      <TodoList todos={todos} />
+      <TodoForm addTodo={addTodo} />
+      <TodoList todos={todos} todoDone={todoDone} />
     </div>
   );
 };
