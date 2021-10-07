@@ -27,10 +27,13 @@ const App = () => {
       })
     );
   };
+  const archive = () => {
+    setTodos(todos.filter((todo) => !todo.done));
+  };
 
   return (
     <div>
-      <TodoStatus todos={todos} />
+      <TodoStatus todos={todos} archive={archive} />
       <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} todoDone={todoDone} />
     </div>
