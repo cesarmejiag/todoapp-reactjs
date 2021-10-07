@@ -1,17 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TodoItem from "../TodoItem";
 
 const TodoList = ({ todos }) => {
-  useEffect(() => {
-    console.log("TodoList mount");
-    return () => {
-      console.log("TodoList unmount");
-    };
-  });
-
   return (
     <ul className="TodoList">
-      <TodoItem todo={todos[0]} />
+      {todos.map((todo => (
+        <TodoItem key={todo.id} todo={todo} />
+      )))}
     </ul>
   );
 };

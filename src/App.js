@@ -1,27 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TodoList from "./components/TodoList";
 
-const todos = [
+const initTodos = [
   {
+    id: 1,
     done: false,
     text: "Study ReactJS",
   },
 ];
 
 const App = () => {
-  const [visible, setVisible] = useState(true);
+  const [todos, setTodos] = useState(initTodos);
   const handleClick = () => {
-    setVisible(!visible);
+    setTodos(todos.concat([{ id: Date.now(), done: false, text: "Drink Coffee" }]));
   };
-
-  useEffect(() => {
-    console.log("App mount or update");
-  }, [visible]);
 
   return (
     <div>
-      <button onClick={handleClick}>Show / Hide</button>
-      {visible && <TodoList todos={todos} />}
+      <button onClick={handleClick}>Add todo</button>
+      <TodoList todos={todos} />
     </div>
   );
 };
