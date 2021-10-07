@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 
 const TodoItem = ({ todo, todoDone }) => {
   const handleChange = () => {
@@ -7,7 +8,7 @@ const TodoItem = ({ todo, todoDone }) => {
 
   return (
     <li className="TodoItem">
-      <label>
+      <label className={ todo.done ? 'todo-done' : '' }>
         <input onChange={handleChange} checked={todo.done} type="checkbox" />
         <span>{todo.text}</span>
       </label>

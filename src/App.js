@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoStatus from "./components/TodoStatus";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
@@ -29,6 +30,7 @@ const App = () => {
 
   return (
     <div>
+      <TodoStatus todos={todos} />
       <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} todoDone={todoDone} />
     </div>
