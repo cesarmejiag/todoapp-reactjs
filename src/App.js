@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TodoStatus from "./components/TodoStatus";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import AppContext from "./AppContext";
 
 const initTodos = [
   {
@@ -33,9 +34,11 @@ const App = () => {
 
   return (
     <div>
-      <TodoStatus todos={todos} archive={archive} />
-      <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} todoDone={todoDone} />
+      <AppContext.Provider value={{ todoDone }}>
+        <TodoStatus todos={todos} archive={archive} />
+        <TodoForm addTodo={addTodo} />
+        <TodoList todos={todos} />
+      </AppContext.Provider>
     </div>
   );
 };

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./index.css";
+import AppContext from "../../AppContext";
 
-const TodoItem = ({ todo, todoDone }) => {
+const TodoItem = ({ todo }) => {
+  const { todoDone } = useContext(AppContext);
   const handleChange = () => {
     todoDone(todo.id);
   };
